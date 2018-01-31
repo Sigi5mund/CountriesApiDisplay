@@ -23,10 +23,18 @@ var populateList = function(){
   }
 }
 
+// var populateInformation = function(){
+//   var selected = document.querySelector('select');
+//   selected.
+//
+// }
+
 var app = function(){
   var url = 'https://restcountries.eu/rest/v2';
   makeRequest(url, requestComplete);
-
+  var dropDown = document.querySelector('select');
+  dropDown.addEventListener('change', populateInformation)
 }
+
 
 window.addEventListener('load', app);
