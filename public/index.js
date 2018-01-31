@@ -15,19 +15,22 @@ var requestComplete = function() {
 
 var populateList = function(){
   var select = document.querySelector('select');
-  for (country of countries){
+  countries.forEach(function(country, index) {
     var option = document.createElement('option');
     option.textContent = country.name;
-    console.log(country.name);
+    option.value = index;
     select.appendChild(option);
-  }
+  })
 }
 
-// var populateInformation = function(){
-//   var selected = document.querySelector('select');
-//   selected.
-//
-// }
+var populateInformation = function(){
+  var result = document.querySelector('#country-results');
+  var selected = document.querySelector('select');
+  var country = countries[selected.value]
+  result.innerText = `Name: ${country.name} \n Population: ${country.population} \n Capital city: ${country.capital}`
+
+
+}
 
 var app = function(){
   var url = 'https://restcountries.eu/rest/v2';
