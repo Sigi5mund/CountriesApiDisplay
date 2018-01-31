@@ -13,11 +13,11 @@ var requestComplete = function() {
 }
 
 var populateList = function(){
-    var ul = document.querySelector('#country-list');
-    countries.forEach(function(country){
-    var li = document.createElement('li');
-    li.innerText = country.name;
-    ul.appendChild(li);
+  var select = document.querySelector('select');
+  countries.forEach(function(country){
+    var option = document.createElement('option');
+    option.innerText = country.name;
+    select.appendChild(option);
   })
 }
 
