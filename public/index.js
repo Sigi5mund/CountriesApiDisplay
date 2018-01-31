@@ -7,18 +7,20 @@ var makeRequest = function(url, callback){
 
 var requestComplete = function() {
   if (this.status !== 200)
-    return;
+  return;
   var jsonString = this.responseText;
   countries = JSON.parse(jsonString);
+  populateList();
 }
 
 var populateList = function(){
   var select = document.querySelector('select');
-  countries.forEach(function(country){
+  for (country of countries){
     var option = document.createElement('option');
-    option.innerText = country.name;
+    option.textContent = country.name;
+    console.log(country.name);
     select.appendChild(option);
-  })
+  }
 }
 
 var app = function(){
