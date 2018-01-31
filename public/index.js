@@ -5,8 +5,6 @@ var makeRequest = function(url, callback){
   request.send();
 }
 
-var countries;
-
 var requestComplete = function() {
   if (this.status !== 200)
     return;
@@ -14,10 +12,7 @@ var requestComplete = function() {
   countries = JSON.parse(jsonString);
 }
 
-
-
 var populateList = function(){
-  console.log(countries);
     var ul = document.querySelector('#country-list');
     countries.forEach(function(country){
     var li = document.createElement('li');
@@ -26,14 +21,10 @@ var populateList = function(){
   })
 }
 
-
-
 var app = function(){
   var url = 'https://restcountries.eu/rest/v2';
   makeRequest(url, requestComplete);
 
-  var seeAllButton = document.getElementById('seeAll')
-  seeAllButton.addEventListener('click', populateList);
 }
 
 window.addEventListener('load', app);
