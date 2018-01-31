@@ -24,6 +24,9 @@ var populateList = function(){
 }
 
 var displayPopulateInformation = function(previousCountry){
+  if (previousCountry == null){
+    return;
+  }
   var result = document.querySelector('#country-results');
   var country = previousCountry;
   result.innerText = `Welcome Back! The FBI have been tracking your activities and they say you were last looking at this country: \n\n Name: ${country.name} \n Population: ${country.population} \n Capital city: ${country.capital}`;
